@@ -1,17 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="col-sm-8 blog-main">
-        <div class="blog-post">
+    <div class="container">
 
-            <h4>Post title</h4>
+        <h2 class="blog-post-title">
+            {{ $category->name }}
+        </h2>
 
-            <p>post 1</p>
-            <p>post 2</p>
-            <p>post 3</p>
-            <p>post 4</p>
-            <p>post 5</p>
+        @foreach($posts as $post)
+            <a href="/{{ $post->category->id }}/{{ $post->id }}">
+                <p>{{ $post->title }}</p>
+            </a>
+        @endforeach
 
-        </div>
     </div>
 @endsection

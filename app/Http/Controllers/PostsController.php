@@ -2,21 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    public function index()
+    public function index(Category $category)
     {
-//        dd($posts);
-//        $posts = $posts->all();
-//        $posts = (new \App\Repositories\Posts)->all();
-//
-//        $posts = Post::latest()
-//            ->filter(request(['month', 'year']))
-//            ->get();
-//
-//        return view('posts.index', compact('posts'));
-        return view('posts.index');
+        $posts = Post::all()->where('category_id', '=', ($category->id));
+
+        return view('posts.index', compact('posts', 'category'));
     }
 }

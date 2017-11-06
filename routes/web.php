@@ -11,4 +11,6 @@
 |
 */
 
-Route::get('/', 'PostsController@index');
+Route::get('/{category}', 'PostsController@index');
+Route::get('/', 'HomeController@index');
+
