@@ -4,7 +4,7 @@
     <div class="container card mt-3">
         <div class="card-body">
 
-            <h1>{{ $post->title }}</h1>
+            <h3>{{ $post->title }}</h3>
 
             <img src="/images/{{ $post->image_id }}.jpg" class="img-fluid" alt="Responsive image">
 

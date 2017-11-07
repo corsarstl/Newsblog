@@ -5,18 +5,20 @@
 
         @foreach($categories as $category)
             <h2 class="blog-post-title">
-                <a href="/{{ $category->id }}">
+                <a href="{{ route('showCategory', ['category_name' => $category->name]) }}">
                     {{ $category->name }}
                 </a>
             </h2>
 
-            @foreach($category->posts as $post)
-                <a href="/{{ $post->category->id }}/{{ $post->id }}">
+            @foreach($category->postsForList as $post)
+                <a href="{{ route('showCategory', ['category_name' => $category->name]) }}/{{ $post->id }}">
                     <p>{{ $post->title }}</p>
                 </a>
             @endforeach
-
         @endforeach
 
     </div>
 @endsection
+
+
+

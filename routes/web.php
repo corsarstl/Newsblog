@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/{category}/{post}', 'PostsController@show');
-Route::get('/{category}', 'PostsController@index');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/{category_name}/{post}', 'PostsController@show')->name('showPost');
+Route::get('/{category_name}', 'PostsController@index')->name('showCategory');
 
 
 
+//{{ route('showPost', ['category' => $category->post->id ... ]) }}

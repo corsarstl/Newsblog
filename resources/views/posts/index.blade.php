@@ -8,7 +8,7 @@
         </h2>
 
         @foreach($posts as $post)
-            <a href="/{{ $post->category->id }}/{{ $post->id }}">
+            <a href="{{ route('showCategory', ['category_name' => $category->name]) }}/{{ $post->id }}">
                 <p>{{ $post->title }}</p>
             </a>
         @endforeach
