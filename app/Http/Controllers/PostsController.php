@@ -10,8 +10,11 @@ class PostsController extends Controller
 {
     public function index($category_name)
     {
-        $category = Category::all()->where('name', $category_name)->first();
-        $posts = Post::all()->where('category_id', $category->id);          // how to get latest???
+        $category = Category::where('name', '=', $category_name);          // ->first()
+        $posts = Post::all()->where('category_id', '=', $category->id);
+
+//        dump(Category::where('name','=', $category_name)->toSql());
+//        dd($category_name);
 
         return view('posts.index', compact('posts', 'category'));
     }

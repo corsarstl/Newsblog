@@ -1,7 +1,7 @@
 <div class="comments">
     <ul class="list-group">
         @foreach($post->comments as $comment)
-            <li class="list-group-item">
+            <li class="list-group-item mt-3">
                 <p>
                     <strong>{{ $comment->user->name }}</strong>
                     wrote

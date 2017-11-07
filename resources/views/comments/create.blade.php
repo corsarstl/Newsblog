@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mt-3">
     <div class="card-block">
         <form method="POST" action="/{{ $category_name }}/{{ $post->id }}/comments">
             {{ csrf_field() }}

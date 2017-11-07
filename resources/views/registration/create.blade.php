@@ -31,6 +31,8 @@
                 <button type="submit" class="btn btn-primary">Register</button>
             </div>
 
+            @include('layouts.errors')
+
         </form>
     </div>
 @endsection

@@ -33,7 +33,7 @@
 
 
         @if (Auth::check())
-            <p class="h4 ml-auto">Welcome back, {{ Auth::user()->name }}!</p>
+            <p class="h5 text-white mx-auto">Welcome back, {{ Auth::user()->name }}!</p>
 
             <form class="form-inline">
                 <a class="btn btn-outline-warning" href="/logout" role="button">Logout</a>
