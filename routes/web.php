@@ -17,6 +17,5 @@ Route::get('/{category_name}', 'PostsController@index')->name('showCategory');
 
 Route::post('/{category_name}/{post}/comments', 'CommentsController@store')->name('storeComment');
 
-
-
-//{{ route('showPost', ['category' => $category->post->id ... ]) }}
+Route::get('/register', 'RegistrationController@create');
+Route::get('/login', 'SessionsController@create')->name('login');
