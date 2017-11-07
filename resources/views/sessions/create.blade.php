@@ -2,7 +2,7 @@
 
 @section('content')
 
-        <h1>Sign In</h1>
+        <h2>Login</h2>
 
         <form method="POST" action="/login">
             {{ csrf_field() }}
@@ -18,7 +18,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </div>
 
         </form>

@@ -32,7 +32,7 @@
 
         <form class="form-inline">
             <button class="btn btn-outline-success" type="button">Login</button>
-            <button class="btn btn-outline-success" type="button">Sign Up</button>
+            <button class="btn btn-outline-success" type="button">Register</button>
         </form>
     </div>
 </nav>

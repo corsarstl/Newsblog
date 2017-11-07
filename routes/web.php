@@ -12,10 +12,11 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/register', 'RegistrationController@create')->name('register');
+Route::get('/login', 'SessionsController@create')->name('login');
+
 Route::get('/{category_name}/{post}', 'PostsController@show')->name('showPost');
 Route::get('/{category_name}', 'PostsController@index')->name('showCategory');
 
 Route::post('/{category_name}/{post}/comments', 'CommentsController@store')->name('storeComment');
 
-Route::get('/register', 'RegistrationController@create');
-Route::get('/login', 'SessionsController@create')->name('login');

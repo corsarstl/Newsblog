@@ -8,6 +8,6 @@ class RegistrationController extends Controller
 {
     public function create()
     {
-        return (view('session.create'));
+        return (view('registration.create'));
     }
 }
