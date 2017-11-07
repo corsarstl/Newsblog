@@ -23,13 +23,37 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->word
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
 
     return [
-        'user_id'   => function () {
-            return factory(::class)->create()->id;
+        'title' => $faker->sentence($nbWords = 5, $variableNbWords = true),
+        'body' => $faker->text($maxNbChars = 1000),
+        'image_id' => $faker->numberBetween($min = 1, $max = 10),
+        'category_id' => function () {
+            return \App\Models\Category::all()->random()->id;
+        }
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Comment::class, function (Faker\Generator $faker) {
+
+    return [
+        'post_id' => function () {
+            return \App\Models\Post::all()->random()->id;
         },
-        'title'     => $faker->sentence,
-        'body'      => $faker->paragraph
+        'user_id' => function () {
+            return \App\Models\User::all()->random()->id;
+        },
+        'body' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true)
     ];
 });
