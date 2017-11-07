@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/{category_name}/{post}', 'PostsController@show')->name('showPost');
 Route::get('/{category_name}', 'PostsController@index')->name('showCategory');
 
+Route::post('/{category_name}/{post}/comments', 'CommentsController@store')->name('storeComment');
+
 
 
 //{{ route('showPost', ['category' => $category->post->id ... ]) }}

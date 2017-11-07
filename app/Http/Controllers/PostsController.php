@@ -17,6 +17,6 @@ class PostsController extends Controller
     }
     public function show($category_name, Post $post)
     {
-        return view('posts.show', compact('post'));
+        return view('posts.show', compact('category_name', 'post'));
     }
 }
