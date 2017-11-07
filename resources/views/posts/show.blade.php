@@ -14,7 +14,9 @@
 
             @include('comments.show')
 
-            @include('comments.create')
+            @if (Auth::check())
+                @include('comments.create')
+            @endif
 
         </div>
     </div>

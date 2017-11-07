@@ -30,9 +30,22 @@
             </form>
         </ul>
 
-        <form class="form-inline">
-            <button class="btn btn-outline-success" type="button">Login</button>
-            <button class="btn btn-outline-success" type="button">Register</button>
-        </form>
+
+
+        @if (Auth::check())
+            <p class="h4 ml-auto">Welcome back, {{ Auth::user()->name }}!</p>
+
+            <form class="form-inline">
+                <a class="btn btn-outline-warning" href="/logout" role="button">Logout</a>
+            </form>
+        @endif
+
+
+        @if (!Auth::check())
+            <form class="form-inline">
+                <a class="btn btn-outline-success" href="/login" role="button">Login</a>&nbsp;
+                <a class="btn btn-outline-success" href="/register" role="button">Register</a>
+            </form>
+        @endif
     </div>
 </nav>
