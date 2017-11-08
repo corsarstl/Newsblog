@@ -1,7 +1,17 @@
 <div class="comments">
     <ul class="list-group">
+
+        @if(!Auth::user())
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Hello, stranger!</strong> Please, sign in to rate the comments.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         @foreach($post->comments as $comment)
-            <li class="list-group-item mt-3" data-commentId="{{ $comment->id }}">
+            <li class="list-group-item mt-3" data-commentid="{{ $comment->id }}">
                 <p>
                     <strong>{{ $comment->user->name }}</strong>
                     wrote
@@ -12,26 +22,18 @@
 
                 <p>{{ $comment->body }}</p>
 
-{{--                @if(Auth::user())--}}
+                @if(Auth::user())
                     <div>
-                        {{--<a href="#"><i class="fa fa-thumbs-up like" aria-hidden="true"></i>--}}
-                            {{--{{ Auth::user()->likes()->where('comment_id', $comment->id)->first() ?--}}
-                            {{--Auth::user()->likes()->where('comment_id', $comment->id)->first()->like == 1 ?--}}
-                            {{--'You like this post' : 'Like' : 'Like' }}--}}
-                        {{--</a>--}}
-                        {{--<a href="#"><i class="fa fa-thumbs-down like" aria-hidden="true"></i>--}}
-                            {{--{{ Auth::user()->likes()->where('comment_id', $comment->id)->first() ?--}}
-                            {{--Auth::user()->likes()->where('comment_id', $comment->id)->first()->like == 0 ?--}}
-                            {{--'You don\`t like this post' : 'Dislike' : 'Dislike' }}--}}
-                        {{--</a>--}}
+                        <a href="#" class="like">{{ Auth::user()->likes()->where('comment_id', $comment->id)->first() ? Auth::user()->likes()->where('comment_id', $comment->id)->first()->like == 1 ? 'You like this comment' : 'Like' : 'Like'  }}</a> |
+                        <a href="#" class="like">{{ Auth::user()->likes()->where('comment_id', $comment->id)->first() ? Auth::user()->likes()->where('comment_id', $comment->id)->first()->like == 0 ? 'You don\'t like this comment' : 'Dislike' : 'Dislike'  }}</a>
 
                         {{--<i class="fa fa-thumbs-up like" aria-hidden="true"></i>--}}
                         {{--<i class="fa fa-thumbs-down like" aria-hidden="true"></i>--}}
 
-                        <a href="#" class="like">Like</a>
-                        <a href="#" class="like">Dislike</a>
+                        {{--<a href="#" class="like">Like</a>--}}
+                        {{--<a href="#" class="like">Dislike</a>--}}
                     </div>
-                {{--@endif--}}
+                @endif
 
                 @if(Auth::user() == $comment->user)
                     <a href="">Edit</a>
@@ -45,4 +47,3 @@
     var token = '{{ Session::token() }}';
     var urlLike = '{{ route('like') }}';
 </script>
-<script src="/js/app.js"></script>
