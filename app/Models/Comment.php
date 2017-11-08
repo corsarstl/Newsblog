@@ -24,4 +24,14 @@ class Comment extends Model
     {
         return $this->hasMany(Like::class);
     }
+
+    public function likesCount()
+    {
+        return $this->likes()->count();
+    }
+
+    public function sortByRatingDesc()
+    {
+        return $this->likesCount()->orderByDesc()->get();
+    }
 }

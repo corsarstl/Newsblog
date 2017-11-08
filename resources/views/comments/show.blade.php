@@ -10,13 +10,18 @@
             </div>
         @endif
 
-        @foreach($post->comments as $comment)
+        @foreach($post->comments->sortByRatingDesc() as $comment)
             <li class="list-group-item mt-3" data-commentid="{{ $comment->id }}">
-                <p>
-                    <strong>{{ $comment->user->name }}</strong>
-                    wrote
+                <div>
+                    <span>
+                        <strong>{{ $comment->user->name }}</strong>
+                        wrote
                     <em>{{ $comment->created_at->diffForHumans() }}</em>
-                </p>
+                    </span>
+                    <span class="float-right">
+                        <strong>Rating: {{ $comment->likesCount() }}</strong>
+                    </span>
+                </div>
 
                 <hr>
 
@@ -26,12 +31,6 @@
                     <div>
                         <a href="#" class="like">{{ Auth::user()->likes()->where('comment_id', $comment->id)->first() ? Auth::user()->likes()->where('comment_id', $comment->id)->first()->like == 1 ? 'You like this comment' : 'Like' : 'Like'  }}</a> |
                         <a href="#" class="like">{{ Auth::user()->likes()->where('comment_id', $comment->id)->first() ? Auth::user()->likes()->where('comment_id', $comment->id)->first()->like == 0 ? 'You don\'t like this comment' : 'Dislike' : 'Dislike'  }}</a>
-
-                        {{--<i class="fa fa-thumbs-up like" aria-hidden="true"></i>--}}
-                        {{--<i class="fa fa-thumbs-down like" aria-hidden="true"></i>--}}
-
-                        {{--<a href="#" class="like">Like</a>--}}
-                        {{--<a href="#" class="like">Dislike</a>--}}
                     </div>
                 @endif
 

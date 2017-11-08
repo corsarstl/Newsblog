@@ -2,9 +2,6 @@ $('.like').on('click', function (event) {
     event.preventDefault();
     var commentId = event.target.parentNode.parentNode.dataset['commentid'],
         isLike = event.target.previousElementSibling == null;
-    console.log(isLike);
-    console.log(commentId);
-    console.log(token);
     $.ajax({
         method: 'POST',
         url: urlLike,
