@@ -25,4 +25,9 @@ class Post extends Model
         $user_id = auth()->user()->id;
         $this->comments()->create(compact('body', 'user_id'));
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }
