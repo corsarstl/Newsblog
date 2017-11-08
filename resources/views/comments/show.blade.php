@@ -11,6 +11,15 @@
                 <hr>
 
                 <p>{{ $comment->body }}</p>
+
+                <div>
+                    <i class="fa fa-thumbs-up like" aria-hidden="true"></i>
+                    <i class="fa fa-thumbs-down like" aria-hidden="true"></i>
+                </div>
+
+                @if(Auth::user() == $comment->user)
+                    <a href="">Edit</a>
+                @endif
             </li>
         @endforeach
     </ul>

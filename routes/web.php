@@ -20,8 +20,10 @@ Route::get('/login', 'SessionsController@create')->name('login');
 Route::post('/login', 'SessionsController@store');
 Route::get('/logout', 'SessionsController@destroy');
 
-Route::get('/tags/{tag}', 'TagsController@index');
+Route::get('/tags/{tag}', 'TagsController@index ');
 
 Route::get('/{category_name}/{post}', 'PostsController@show')->name('showPost');
 Route::get('/{category_name}', 'PostsController@index')->name('showCategory');
 Route::post('/{category_name}/{post}/comments', 'CommentsController@store')->name('storeComment');
+
+Route::post('/like', 'CommentsController@likeComment')->name('like');
