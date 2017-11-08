@@ -8,6 +8,14 @@ $('.like').on('click', function (event) {
         data: {isLike: isLike, commentId: commentId, _token: token}
     })
         .done(function () {
-            //change the page
+            event.target.innerText = isLike ?
+                event.target.innerText == 'Like' ?
+                    'You like this post' : 'Like' : event.target.innerText == 'Dislike' ?
+                    'You don\'t like this post' : 'Dislike';
+            if (isLike) {
+                event.target.nextElementSibling.innerText = 'Dislike';
+            } else {
+                event.target.previousElementSibling.innerText = 'Like';
+            }
         });
 });

@@ -54,7 +54,7 @@ class CommentsController extends Controller
         }
         $like->like = $isLike;
         $like->user_id = $user->id;
-        $like->comment_id = $comment->id;
+        $like->comment_id = $commentId;
 
         if ($update) {
             $like->update();
