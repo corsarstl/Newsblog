@@ -25,7 +25,6 @@ class SessionsController extends Controller
             ]);
         }
 
-        //redirect to the home page
         return redirect()->home();
     }
 

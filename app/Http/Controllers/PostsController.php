@@ -10,14 +10,12 @@ class PostsController extends Controller
 {
     public function index($category_name)
     {
-        $category = Category::where('name', '=', $category_name);          // ->first()
-        $posts = Post::all()->where('category_id', '=', $category->id);
+        $category_id = Category::where('name', $category_name)->value('id');
+        $posts = Post::where('category_id', $category_id)->orderBy('created_at', 'desc')->get();
 
-//        dump(Category::where('name','=', $category_name)->toSql());
-//        dd($category_name);
-
-        return view('posts.index', compact('posts', 'category'));
+        return view('posts.index', compact('posts', 'category_name'));
     }
+
     public function show($category_name, Post $post)
     {
         return view('posts.show', compact('category_name', 'post'));
