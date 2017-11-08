@@ -57,3 +57,11 @@ $factory->define(App\Models\Comment::class, function (Faker\Generator $faker) {
         'body' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true)
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->word
+    ];
+});
