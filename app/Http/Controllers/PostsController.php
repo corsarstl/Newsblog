@@ -16,7 +16,15 @@ class PostsController extends Controller
         return view('posts.index', compact('posts', 'category_name'));
     }
 
+    public function indexAnalytics()
+    {
+        $posts = Post::where('is_analytic', 1)->orderBy('created_at', 'desc')->get();
+//        $posts = Post::all();
 
+//        dd($posts);
+
+        return view('posts.analytics', compact('posts'));
+    }
 
     public function show($category_name, Post $post)
     {

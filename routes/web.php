@@ -25,6 +25,7 @@ Route::get('/logout', 'SessionsController@destroy');
 // Categories, posts and tags routes
 Route::get('/tags/{tag}', 'TagsController@index');
 
+Route::get('/analytics', 'PostsController@indexAnalytics')->name('showAnalytics');
 Route::get('/{category_name}/{post}', 'PostsController@show')->name('showPost');
 Route::get('/{category_name}', 'PostsController@index')->name('showCategory');
 Route::post('/{category_name}/{post}/comments', 'CommentsController@store')->name('storeComment');

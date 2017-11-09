@@ -38,7 +38,9 @@
 
             <hr>
 
-            @include('comments.show')
+            @if ($post->comments->count() > 0)
+                @include('comments.show')
+            @endif
 
             @if (Auth::check())
                 @include('comments.create')

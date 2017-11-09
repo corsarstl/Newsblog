@@ -20,7 +20,7 @@
                     <a class="dropdown-item" href="#">Sports</a>
                     <a class="dropdown-item" href="#">Technology</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Analytics</a>
+                    <a class="dropdown-item" href="/analytics">Analytics</a>
                 </div>
             </li>
 
