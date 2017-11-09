@@ -2,13 +2,19 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
-            @include('home.top5commentators')
-
-            @include('home.top3posts')
+            @include('home.slider')
         </div>
     </div>
+
+    {{--<div class="container">--}}
+        {{--<div class="row">--}}
+            {{--@include('home.top5commentators')--}}
+
+            {{--@include('home.top3posts')--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     <hr>
 

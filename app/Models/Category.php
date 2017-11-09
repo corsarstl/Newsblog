@@ -21,4 +21,6 @@ class Category extends Model
     {
         return $this->posts()->latest()->limit(5);
     }
+
+
 }

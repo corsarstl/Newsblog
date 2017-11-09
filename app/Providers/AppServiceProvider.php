@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+//        view()->composer('home.top3posts', function($view) {
+//            $view->with('top3posts', )
+//        });
+
+
     }
 
     /**

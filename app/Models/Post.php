@@ -46,4 +46,16 @@ class Post extends Model
 
         return $bodyShortFormStr;
     }
+
+    public function latest3posts()
+    {
+        return $this->latest()->limit(3);
+    }
+
+    public function top3posts()
+    {
+//        return $this->orderByDesc($this->comments()->count())->limit(3)->get();
+//        return $this->comments()->count()->limit(3)->get();
+        return $this->limit(3);
+    }
 }
