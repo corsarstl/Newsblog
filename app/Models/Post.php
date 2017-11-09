@@ -30,4 +30,20 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function analyticsIfNotLoggedIn()
+    {
+        $bodyStr = $this->body;
+        $bodyArr = explode('. ', $bodyStr);
+
+        $bodyShortFormArr = [];
+//
+        for ($i = 0; $i < 5; $i++) {
+            $bodyShortFormArr[] = $bodyArr[$i];
+        }
+
+        $bodyShortFormStr = implode(". ", $bodyShortFormArr);
+
+        return $bodyShortFormStr;
+    }
 }

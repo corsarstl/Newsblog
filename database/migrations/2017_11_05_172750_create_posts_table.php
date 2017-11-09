@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->integer('image_id');
             $table->integer('category_id');
             $table->integer('read_count');
+            $table->boolean('is_analytic');
             $table->timestamps();
         });
     }

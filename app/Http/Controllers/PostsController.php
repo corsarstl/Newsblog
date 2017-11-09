@@ -16,6 +16,8 @@ class PostsController extends Controller
         return view('posts.index', compact('posts', 'category_name'));
     }
 
+
+
     public function show($category_name, Post $post)
     {
         $readingNow = rand(0, 5);
@@ -28,6 +30,6 @@ class PostsController extends Controller
         //save updated value to db
         Post::where('id', $post->id)->update(['read_count' => $readCountUpdated]);
 
-        return view('posts.show', compact('post', 'readingNow', 'readCount')); //'category_name' don't use
+        return view('posts.show', compact('category_name', 'post', 'readingNow', 'readCount'));
     }
 }

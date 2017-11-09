@@ -6,7 +6,7 @@
 
             <h3>{{ $post->title }}</h3>
 
-            @if($post->tags)
+            @if($post->tags->count() > 0)
                 <h5>Tags:
                     @foreach($post->tags as $tag)
                         <a href="/tags/{{ $tag->name }}">
@@ -23,7 +23,18 @@
 
             <img src="/images/{{ $post->image_id }}.jpg" class="img-fluid" alt="Responsive image">
 
-            {{ $post->body }}
+            @if (!Auth::check() & ($post->is_analytic == true))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Hello, stranger!</strong> Please, sign in to read the full version of the article.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                {{ $post->analyticsIfNotLoggedIn() }}...
+            @else
+                {{ $post->body }}
+            @endif
 
             <hr>
 

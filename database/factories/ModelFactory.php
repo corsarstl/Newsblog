@@ -41,7 +41,8 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
         'category_id' => function () {
             return \App\Models\Category::all()->random()->id;
         },
-        'read_count' => $faker->numberBetween($min = 1, $max = 100)
+        'read_count' => $faker->numberBetween($min = 1, $max = 100),
+        'is_analytic' => $faker->boolean($chanceOfGettingTrue = 40)
     ];
 });
 
