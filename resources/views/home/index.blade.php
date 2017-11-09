@@ -1,6 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
+
+    <div class="container">
+        <div class="row">
+            @include('home.top5commentators')
+
+            @include('home.top3posts')
+        </div>
+    </div>
+
+    <hr>
+
     <div class="container">
 
         @foreach($categories as $category)
