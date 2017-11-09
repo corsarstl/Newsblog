@@ -40,7 +40,8 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
         'image_id' => $faker->numberBetween($min = 1, $max = 10),
         'category_id' => function () {
             return \App\Models\Category::all()->random()->id;
-        }
+        },
+        'read_count' => $faker->numberBetween($min = 1, $max = 100)
     ];
 });
 

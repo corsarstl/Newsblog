@@ -18,6 +18,16 @@ class PostsController extends Controller
 
     public function show($category_name, Post $post)
     {
-        return view('posts.show', compact('category_name', 'post'));
+        $readingNow = rand(0, 5);
+
+        // take from db
+        $readCount = Post::where('id', $post->id)->value('read_count');
+
+        $readCountUpdated = $readCount + $readingNow;
+
+        //save updated value to db
+        Post::where('id', $post->id)->update(['read_count' => $readCountUpdated]);
+
+        return view('posts.show', compact('post', 'readingNow', 'readCount')); //'category_name' don't use
     }
 }

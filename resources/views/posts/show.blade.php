@@ -16,6 +16,11 @@
                 </h5>
             @endif
 
+            <p>
+                <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;now: {{ $readingNow }} |
+                <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;total: {{ $readCount }}
+            </p>
+
             <img src="/images/{{ $post->image_id }}.jpg" class="img-fluid" alt="Responsive image">
 
             {{ $post->body }}
