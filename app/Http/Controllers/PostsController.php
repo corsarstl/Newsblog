@@ -28,7 +28,7 @@ class PostsController extends Controller
 
     public function show($category_name, Post $post)
     {
-        $readingNow = rand(0, 5);
+        $readingNow = rand(1, 5);
 
         // take from db
         $readCount = Post::where('id', $post->id)->value('read_count');
