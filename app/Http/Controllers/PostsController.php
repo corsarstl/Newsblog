@@ -18,7 +18,7 @@ class PostsController extends Controller
 
     public function indexAnalytics()
     {
-        $posts = Post::where('is_analytic', 1)->orderBy('id', 'desc')->get();
+        $posts = Post::where('is_analytic', 1)->orderBy('id', 'desc')->paginate(5);
 //        $posts = Post::all();
 
 //        dd($posts);
