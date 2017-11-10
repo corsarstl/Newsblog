@@ -18,10 +18,10 @@ class HomeController extends Controller
         $posts = Post::all();
 
 
-//        $latestPosts = DB::table('posts')
-//            ->latest()
-//            ->limit(3)
-//            ->get();
+        $latestPosts = DB::table('posts')
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
 
 //        dd($top3posts);
 

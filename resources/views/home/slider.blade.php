@@ -5,7 +5,7 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-        @foreach($posts->latest3posts() as $post)
+        @foreach($latestPosts as $post)
             @if ($loop->first)
                 <div class="carousel-item active">
             @else
@@ -13,7 +13,7 @@
             @endif
                 <img class="d-block w-100" src="/images/{{ $post->image_id }}.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2 class="text-danger">{{ $post->category->name }}</h2>
+                    {{--<h2 class="text-danger">{{ $post->category->name }}</h2>--}}
                     <h3 class="text-white">{{ $post->title }}</h3>
                 </div>
             </div>
