@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-
 
 class HomeController extends Controller
 {
@@ -18,12 +15,13 @@ class HomeController extends Controller
         $posts = Post::all();
 
 
-        $latestPosts = DB::table('posts')
-            ->orderBy('created_at', 'desc')
-            ->limit(3)
-            ->get();
+//        $latestPosts = DB::table('posts')
+//            ->orderBy('created_at', 'desc')
+//            ->limit(3)
+//            ->get();
+        $latestPosts = Post::latest()->orderBy('id', 'desc')->limit(3)->get();
 
-//        dd($top3posts);
+//        dd($latestPosts);
 
         return view('home.index', compact('categories', 'users', 'posts', 'latestPosts'));
     }
