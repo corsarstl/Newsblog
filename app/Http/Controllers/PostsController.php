@@ -11,7 +11,7 @@ class PostsController extends Controller
     public function index($category_name)
     {
         $category_id = Category::where('name', $category_name)->value('id');
-        $posts = Post::where('category_id', $category_id)->orderBy('id', 'desc')->get();
+        $posts = Post::where('category_id', $category_id)->orderBy('id', 'desc')->paginate(5);
 
         return view('posts.index', compact('posts', 'category_name'));
     }
