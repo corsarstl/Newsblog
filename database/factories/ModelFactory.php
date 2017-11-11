@@ -37,7 +37,7 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'body' => $faker->text($maxNbChars = 1000),
-        'image_id' => $faker->numberBetween($min = 1, $max = 10),
+        'image_id' => $faker->numberBetween($min = 1, $max = 8),
         'category_id' => function () {
             return \App\Models\Category::all()->random()->id;
         },

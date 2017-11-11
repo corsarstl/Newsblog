@@ -11,7 +11,7 @@
             @else
                 <div class="carousel-item">
             @endif
-                <img class="d-block w-100" src="/images/{{ $post->image_id }}.jpg" alt="First slide">
+                <img class="d-block w-100" src="/images/posts/{{ $post->image_id }}.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <a href="/{{ $post->category->name }}">
                         <h2 class="text-danger">{{ $post->category->name }}</h2>

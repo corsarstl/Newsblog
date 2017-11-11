@@ -17,7 +17,7 @@ class BannersTableSeeder extends Seeder
             $productName = Faker\Factory::create()->word;
             $price = Faker\Factory::create()->randomNumber($nbDigits = 3, $strict = false);
             $sellerSite = Faker\Factory::create()->domainName;
-            $imageId = Faker\Factory::create()->numberBetween($min = 1, $max = 12);
+            $imageId = Faker\Factory::create()->numberBetween($min = 1, $max = 9);
             $data[$productName . $price . $sellerSite . $imageId] = [
                 'product_name' => $productName,
                 'price' => $price,
