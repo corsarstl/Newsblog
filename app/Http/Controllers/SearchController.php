@@ -13,9 +13,9 @@ class SearchController extends Controller
 
         $posts = Post::whereHas('tags', function ($query) use ($tagName) {
             $query->where('tags.name', 'LIKE', '%' . $tagName . '%');
-        })->orderBy('id', 'desc')->paginate(5);
-
-//        dd($posts);
+        })
+            ->orderBy('id', 'desc')
+            ->paginate(5);
 
         return view('tags.search', compact('posts', 'tagName'));
     }

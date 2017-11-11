@@ -9,7 +9,9 @@
                     <li class="card-text">
                         <a href="/users/{{ $user->name }}">
                             {{ $user->name }}
-                        </a> ({{ $user->CommentCount }})
+                        </a>
+
+                        ({{ $user->CommentCount }})
                     </li>
                 @endforeach
             </ol>

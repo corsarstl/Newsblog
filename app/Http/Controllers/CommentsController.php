@@ -19,11 +19,6 @@ class CommentsController extends Controller
     {
         $post->addComment(request('body'));
 
-//        Comment::create([
-//            'body' => request('body'),
-//            'post_id' => $post->id
-//        ]);
-
         return back();
     }
 
@@ -39,7 +34,9 @@ class CommentsController extends Controller
         }
 
         $user = Auth::user();
-        $like = $user->likes()->where('comment_id', $commentId)->first();
+        $like = $user->likes()
+            ->where('comment_id', $commentId)
+            ->first();
 
         if ($like) {
             $alreadyLike = $like->like;

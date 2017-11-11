@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -35,5 +36,18 @@ class User extends Authenticatable
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public static function top5commentators()
+    {
+        $top5commentators = DB::table('users as u')
+            ->select('u.name', DB::raw('COUNT(c.id) as CommentCount'))
+            ->join('comments as c', 'u.id', '=', 'c.user_id')
+            ->groupBy('u.name')
+            ->orderBy('CommentCount', 'desc')
+            ->take(5)
+            ->get();
+
+        return $top5commentators;
     }
 }

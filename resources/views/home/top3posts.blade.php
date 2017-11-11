@@ -7,7 +7,12 @@
             <ol>
                 @foreach($top3posts as $post)
                     <li class="card-text">
-                        <a href="/{{ $post->CategoryName }}/{{ $post->PostId }}">{{ $post->title }}</a> ({{ $post->CommentCount }})</li>
+                        <a href="/{{ $post->CategoryName }}/{{ $post->PostId }}">
+                            {{ $post->title }}
+                        </a>
+
+                        ({{ $post->CommentCount }})
+                    </li>
                 @endforeach
             </ol>
         </div>

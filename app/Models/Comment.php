@@ -29,9 +29,4 @@ class Comment extends Model
     {
         return $this->likes()->count();
     }
-
-    public function sortByRatingDesc()
-    {
-        return $this->orderByDesc($this->likes()->count()->get())->get();
-    }
 }

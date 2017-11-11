@@ -10,18 +10,21 @@ class PostsController extends Controller
 {
     public function index($category_name)
     {
-        $category_id = Category::where('name', $category_name)->value('id');
-        $posts = Post::where('category_id', $category_id)->orderBy('id', 'desc')->paginate(5);
+        $category_id = Category::where('name', $category_name)
+            ->value('id');
+
+        $posts = Post::where('category_id', $category_id)
+            ->orderBy('id', 'desc')
+            ->paginate(5);
 
         return view('posts.index', compact('posts', 'category_name'));
     }
 
     public function indexAnalytics()
     {
-        $posts = Post::where('is_analytic', 1)->orderBy('id', 'desc')->paginate(5);
-//        $posts = Post::all();
-
-//        dd($posts);
+        $posts = Post::where('is_analytic', 1)
+            ->orderBy('id', 'desc')
+            ->paginate(5);
 
         return view('posts.analytics', compact('posts'));
     }
@@ -31,12 +34,14 @@ class PostsController extends Controller
         $readingNow = rand(1, 5);
 
         // take from db
-        $readCount = Post::where('id', $post->id)->value('read_count');
+        $readCount = Post::where('id', $post->id)
+            ->value('read_count');
 
         $readCountUpdated = $readCount + $readingNow;
 
         //save updated value to db
-        Post::where('id', $post->id)->update(['read_count' => $readCountUpdated]);
+        Post::where('id', $post->id)
+            ->update(['read_count' => $readCountUpdated]);
 
         return view('posts.show', compact('category_name', 'post', 'readingNow', 'readCount'));
     }

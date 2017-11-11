@@ -6,12 +6,14 @@
 
         <h2 class="blog-post-title">
             <u>All posts by user:</u>
+
             <p>{{ $user_name}}</p>
         </h2>
 
         @if(!Auth::user())
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Hello, stranger!</strong> Please, sign in to rate the comments.
+
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

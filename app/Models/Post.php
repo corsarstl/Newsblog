@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Post extends Model
 {
@@ -23,6 +24,7 @@ class Post extends Model
     public function addComment($body)
     {
         $user_id = auth()->user()->id;
+
         $this->comments()->create(compact('body', 'user_id'));
     }
 
@@ -37,7 +39,7 @@ class Post extends Model
         $bodyArr = explode('. ', $bodyStr);
 
         $bodyShortFormArr = [];
-//
+
         for ($i = 0; $i < 5; $i++) {
             $bodyShortFormArr[] = $bodyArr[$i];
         }
@@ -47,15 +49,31 @@ class Post extends Model
         return $bodyShortFormStr;
     }
 
-    public function latest3posts()
+    public static function latest3posts()
     {
-        return $this->latest()->limit(3);
+        $latest3Posts = Post::latest()
+            ->orderBy('id', 'desc')
+            ->limit(3)
+            ->get();
+
+        return $latest3Posts;
     }
 
-    public function top3posts()
+    public static function top3posts()
     {
-//        return $this->orderByDesc($this->comments()->count())->limit(3)->get();
-//        return $this->comments()->count()->limit(3)->get();
-        return $this->limit(3);
+        $top3posts = DB::table('posts as p')
+            ->select(
+                'p.title',
+                'cat.name as CategoryName',
+                'p.id as PostId',
+                DB::raw('COUNT(c.id) as CommentCount'))
+            ->join('comments as c', 'p.id', '=', 'c.post_id')
+            ->join('categories as cat', 'p.category_id', '=', 'cat.id')
+            ->groupBy('p.title', 'CategoryName', 'PostId')
+            ->orderBy('CommentCount', 'desc')
+            ->take(3)
+            ->get();
+
+        return $top3posts;
     }
 }

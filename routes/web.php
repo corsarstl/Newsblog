@@ -13,22 +13,24 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-// Registration routes
+// Registration
 Route::get('/register', 'RegistrationController@create')->name('register');
 Route::post('/register', 'RegistrationController@store');
 
-// Authentication routes
+// Authentication
 Route::get('/login', 'SessionsController@create')->name('login');
 Route::post('/login', 'SessionsController@store');
 Route::get('/logout', 'SessionsController@destroy');
 
 Route::get('/search', 'SearchController@index')->name('search');
 
-// Users and tags routes
+// Tags
 Route::get('/tags/{tag}', 'TagsController@index');
+
+// Users
 Route::get('/users/{user_name}', 'UsersController@indexPosts');
 
-//Categories and posts
+//Categories and Posts
 Route::get('/analytics', 'PostsController@indexAnalytics')->name('showAnalytics');
 Route::get('/{category_name}/{post}', 'PostsController@show')->name('showPost');
 Route::get('/{category_name}', 'PostsController@index')->name('showCategory');

@@ -21,7 +21,6 @@
                 <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;total: {{ $readCount }}
 
                 @if($post->is_analytic == 1)
-                    {{--<button type="button" class="btn btn-warning ml-5">Analytic post</button>--}}
                     <a class="btn btn-warning ml-5" href="{{ route('showAnalytics') }}" role="button">Analytic post</a>
                 @endif
             </p>
@@ -31,6 +30,7 @@
             @if (!Auth::check() & ($post->is_analytic == true))
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>Hello, stranger!</strong> Please, sign in to read the full version of the article.
+
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
