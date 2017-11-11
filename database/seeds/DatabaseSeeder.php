@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\Tag::class, 20)->create();
         $this->call(PostTagTableSeeder::class);
         $this->call(LikesTableSeeder::class);
+        $this->call(BannersTableSeeder::class);
     }
 }

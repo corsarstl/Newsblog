@@ -25,7 +25,7 @@
                 @endif
             </p>
 
-            <img src="/images/{{ $post->image_id }}.jpg" class="img-fluid" alt="Responsive image">
+            <img src="/images/posts/{{ $post->image_id }}.jpg" class="img-fluid" alt="Responsive image">
 
             @if (!Auth::check() & ($post->is_analytic == true))
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
