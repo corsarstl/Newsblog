@@ -1,12 +1,13 @@
-<div class="container col-sm-6">
+<div class="container col-sm-6 mt-3">
     <div class="card">
         <div class="card-body">
 
             <h4 class="card-title">Top 3 hot posts:</h4>
 
             <ol>
-                @foreach($posts->top3posts() as $post)
-                    <li class="card-text">{{ $post->title }} ({{ $post->comments->count() }})</li>
+                @foreach($top3posts as $post)
+                    <li class="card-text">
+                        <a href="/{{ $post->CategoryName }}/{{ $post->PostId }}">{{ $post->title }}</a> ({{ $post->CommentCount }})</li>
                 @endforeach
             </ol>
         </div>

@@ -8,13 +8,13 @@
         </div>
     </div>
 
-    {{--<div class="container">--}}
-        {{--<div class="row">--}}
-            {{--@include('home.top5commentators')--}}
+    <div class="container">
+        <div class="row">
+            @include('home.top5commentators')
 
-            {{--@include('home.top3posts')--}}
-        {{--</div>--}}
-    {{--</div>--}}
+            @include('home.top3posts')
+        </div>
+    </div>
 
     <hr>
 

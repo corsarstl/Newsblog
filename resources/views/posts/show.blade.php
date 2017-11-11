@@ -19,6 +19,11 @@
             <p>
                 <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;now: {{ $readingNow }} |
                 <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;total: {{ $readCount }}
+
+                @if($post->is_analytic == 1)
+                    {{--<button type="button" class="btn btn-warning ml-5">Analytic post</button>--}}
+                    <a class="btn btn-warning ml-5" href="{{ route('showAnalytics') }}" role="button">Analytic post</a>
+                @endif
             </p>
 
             <img src="/images/{{ $post->image_id }}.jpg" class="img-fluid" alt="Responsive image">

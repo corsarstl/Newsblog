@@ -14,7 +14,7 @@ class LikesTableSeeder extends Seeder
     public function run()
     {
         $data = [];
-        $limit = 400;
+        $limit = 700;
         while ($limit) {
             $user = User::all()->random(1)->first();
             $comment = Comment::all()->random(1)->first();

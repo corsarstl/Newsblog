@@ -24,12 +24,15 @@ Route::get('/logout', 'SessionsController@destroy');
 
 Route::get('/search', 'SearchController@index')->name('search');
 
-// Categories, posts and tags routes
+// Users and tags routes
 Route::get('/tags/{tag}', 'TagsController@index');
+Route::get('/users/{user_name}', 'UsersController@indexPosts');
 
+//Categories and posts
 Route::get('/analytics', 'PostsController@indexAnalytics')->name('showAnalytics');
 Route::get('/{category_name}/{post}', 'PostsController@show')->name('showPost');
 Route::get('/{category_name}', 'PostsController@index')->name('showCategory');
 Route::post('/{category_name}/{post}/comments', 'CommentsController@store')->name('storeComment');
 
+//Likes
 Route::post('/like', 'CommentsController@likeComment')->name('like');
