@@ -22,5 +22,10 @@ class Category extends Model
         return $this->posts()->latest()->limit(5);
     }
 
+    public static function categoriesForMenu()
+    {
+        $categoriesForMenu = Category::all();
 
+        return $categoriesForMenu;
+    }
 }

@@ -14,12 +14,12 @@
                     Categories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Government</a>
-                    <a class="dropdown-item" href="#">Media</a>
-                    <a class="dropdown-item" href="#">Weather</a>
-                    <a class="dropdown-item" href="#">Sports</a>
-                    <a class="dropdown-item" href="#">Technology</a>
+                    @foreach($categoriesForMenu as $category)
+                        <a class="dropdown-item" href="/{{ $category->name }}">{{ $category->name }}</a>
+                    @endforeach
+
                     <div class="dropdown-divider"></div>
+
                     <a class="dropdown-item" href="/analytics">Analytics</a>
                 </div>
             </li>
