@@ -16,4 +16,14 @@ class Banner extends Model
 
         return $banners;
     }
+
+    public static function bannersForDashboard()
+    {
+        $bannersForDashboard = Banner::all();
+
+        return $bannersForDashboard;
+    }
+
+
+
 }

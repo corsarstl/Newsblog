@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin'], function() {
 // CRUD in dashboard
     Route::post('/categories', 'CategoriesController@store')->name('admin.add.category');
     Route::post('/tags', 'TagsController@store')->name('admin.add.tag');
+    Route::post('/banners', 'BannersController@store')->name('admin.add.banner');
 });
 
 //Categories and Posts

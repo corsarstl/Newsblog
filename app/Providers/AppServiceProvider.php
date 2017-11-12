@@ -33,6 +33,13 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('admin.dashboard', function($view) {
             $view->with('tagsForDashboard', Tag::tagsForDashboard());
         });
+
+        view()->composer('admin.dashboard', function($view) {
+            $view->with('bannersForDashboard', Banner::bannersForDashboard());
+        });
+
+
+
     }
 
     /**

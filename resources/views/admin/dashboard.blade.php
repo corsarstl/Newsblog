@@ -32,13 +32,17 @@
             @include('admin.dashboardTabs.tags')
         </div>
 
-        <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">...</div>
+        <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+            ...
+        </div>
 
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">...</div>
 
         <div class="tab-pane fade" id="politics" role="tabpanel" aria-labelledby="politics-tab">...</div>
 
-        <div class="tab-pane fade" id="banners" role="tabpanel" aria-labelledby="banners-tab">...</div>
+        <div class="tab-pane fade" id="banners" role="tabpanel" aria-labelledby="banners-tab">
+            @include('admin.dashboardTabs.banners')
+        </div>
     </div>
 
 @endsection
