@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
+
 use App\Models\Banner;
+use App\Models\Category;
+use App\Models\Tag;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,11 +26,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categoriesForMenu', Category::categoriesForMenu());
         });
 
-        view()->composer('admin.dashboardTabs.categories', function($view) {
+        view()->composer('admin.dashboard', function($view) {
             $view->with('categoriesForMenu', Category::categoriesForMenu());
         });
 
-
+        view()->composer('admin.dashboard', function($view) {
+            $view->with('tagsForDashboard', Tag::tagsForDashboard());
+        });
     }
 
     /**

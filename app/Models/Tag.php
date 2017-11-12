@@ -21,4 +21,16 @@ class Tag extends Model
     {
         return 'name';
     }
+
+    public function addTag($name)
+    {
+        $this->create(compact('name'));
+    }
+
+    public static function tagsForDashboard()
+    {
+        $tagsForDashboard = Tag::all();
+
+        return $tagsForDashboard;
+    }
 }

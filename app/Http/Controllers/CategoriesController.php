@@ -9,7 +9,7 @@ class CategoriesController extends Controller
 {
     public function store(Category $category)
     {
-        $this->validate(request(), ['name' => 'required|min:2']);
+        $this->validate(request(), ['name' => 'required|min:3']);
         $category->addCategory(request('name'));
 
         return back();

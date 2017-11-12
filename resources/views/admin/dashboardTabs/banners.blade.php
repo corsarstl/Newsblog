@@ -1,18 +1,24 @@
-<h4>List of tags:</h4>
+<h4>List of banners:</h4>
 <table class="table">
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">Tag Name</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Seller Site</th>
+        <th scope="col">Image</th>
     </tr>
     </thead>
     <tbody>
-        @foreach($tagsForDashboard as $tag)
-            <tr>
-                <th scope="row">{{ $tag->id }}</th>
-                <td>{{ $tag->name }}</td>
-            </tr>
-        @endforeach
+    @foreach($bannersForDashboard as $banner)
+        <tr>
+            <th scope="row">{{ $banner->id }}</th>
+            <td>{{ $banner->product_name }}</td>
+            <td>$ {{ $banner->price }}</td>
+            <td>{{ $banner->seller_site }}</td>
+            <td>{{ $banner->image_id }}</td>
+        </tr>
+    @endforeach
     </tbody>
 </table>
 

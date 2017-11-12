@@ -37,7 +37,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/', 'AdminsController@dashboard')->name('admin.dashboard');
     Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
 
+// CRUD in dashboard
     Route::post('/categories', 'CategoriesController@store')->name('admin.add.category');
+    Route::post('/tags', 'TagsController@store')->name('admin.add.tag');
 });
 
 //Categories and Posts

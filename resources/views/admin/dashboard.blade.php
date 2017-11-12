@@ -22,12 +22,22 @@
             <a class="nav-link" id="banners-tab" data-toggle="tab" href="#banners" role="tab" aria-controls="contact" aria-selected="false">Banners</a>
         </li>
     </ul>
+
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="categories" role="tabpanel" aria-labelledby="categories-tab">@include('admin.dashboardTabs.categories')</div>
-        <div class="tab-pane fade" id="tags" role="tabpanel" aria-labelledby="tags-tab">...</div>
+        <div class="tab-pane fade show active" id="categories" role="tabpanel" aria-labelledby="categories-tab">
+            @include('admin.dashboardTabs.categories')
+        </div>
+
+        <div class="tab-pane fade" id="tags" role="tabpanel" aria-labelledby="tags-tab">
+            @include('admin.dashboardTabs.tags')
+        </div>
+
         <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">...</div>
+
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">...</div>
+
         <div class="tab-pane fade" id="politics" role="tabpanel" aria-labelledby="politics-tab">...</div>
+
         <div class="tab-pane fade" id="banners" role="tabpanel" aria-labelledby="banners-tab">...</div>
     </div>
 
