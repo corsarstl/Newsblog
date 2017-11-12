@@ -51,12 +51,10 @@ class Post extends Model
 
     public static function latest3posts()
     {
-        $latest3Posts = Post::latest()
+        return static::latest()
             ->orderBy('id', 'desc')
             ->limit(3)
             ->get();
-
-        return $latest3Posts;
     }
 
     public static function top3posts()

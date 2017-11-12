@@ -30,9 +30,7 @@
     <div class="row">
 
         <div class="col-sm-2">
-            @for ($i = 0; $i < 4; $i++)
-                @include('banners.banner')
-            @endfor
+            @include('banners.banner')
         </div>
 
         <div class="col-sm-8 blog-main">
@@ -42,9 +40,7 @@
         </div>
 
         <div class="col-sm-2">
-            @for ($i = 0; $i < 4; $i++)
-                @include('banners.banner')
-            @endfor
+            @include('banners.banner')
         </div>
 
     </div>

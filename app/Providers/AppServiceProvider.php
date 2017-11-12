@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Banner;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,9 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        view()->composer('home.top3posts', function($view) {
-//            $view->with('top3posts', )
-//        });
+        view()->composer('banners.banner', function($view) {
+            $view->with('banners', Banner::banners());
+        });
 
 
     }
