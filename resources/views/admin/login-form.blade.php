@@ -1,10 +1,11 @@
-@extends('layouts.master')
+@extends('admin.master')
 
 @section('content')
-    <div class="p-2">
+    <div class="col-sm-8">
+
         <h2>Login</h2>
 
-        <form method="POST" action="/login">
+        <form method="POST" action="{{ route('admin.login.submit') }}">
             {{ csrf_field() }}
 
             <div class="form-group">
@@ -24,5 +25,9 @@
             @include('layouts.errors')
 
         </form>
+
+        <img src="/images/for_admin_login.png" alt="for admins only" class="img-thumbnail img-fluid">
+
     </div>
+
 @endsection

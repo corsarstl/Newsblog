@@ -30,6 +30,14 @@ Route::get('/tags/{tag}', 'TagsController@index');
 // Users
 Route::get('/users/{user_name}', 'UsersController@indexPosts');
 
+// Admin
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/login', 'AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/', 'AdminsController@dashboard')->name('admin.dashboard');
+    Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
+});
+
 //Categories and Posts
 Route::get('/analytics', 'PostsController@indexAnalytics')->name('showAnalytics');
 Route::get('/{category_name}/{post}', 'PostsController@show')->name('showPost');
@@ -38,3 +46,4 @@ Route::post('/{category_name}/{post}/comments', 'CommentsController@store')->nam
 
 //Likes
 Route::post('/like', 'CommentsController@likeComment')->name('like');
+

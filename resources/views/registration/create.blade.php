@@ -1,7 +1,7 @@
 @extends ('layouts.master')
 
 @section('content')
-
+    <div class="p-2">
         <h2>Register</h2>
 
         <form method="POST" action="/register">

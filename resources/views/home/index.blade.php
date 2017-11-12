@@ -16,11 +16,12 @@
         </div>
     </div>
 
-    <hr>
-
     <div class="container">
 
         @foreach($categories as $category)
+
+            <hr class="m-2">
+
             <h2 class="blog-post-title">
                 <a href="{{ route('showCategory', ['category_name' => $category->name]) }}">
                     {{ $category->name }}
@@ -32,6 +33,9 @@
                     <p>{{ $post->title }}</p>
                 </a>
             @endforeach
+
+
+
         @endforeach
 
     </div>
