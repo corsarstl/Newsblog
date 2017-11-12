@@ -28,4 +28,9 @@ class Category extends Model
 
         return $categoriesForMenu;
     }
+
+    public function addCategory($name)
+    {
+        $this->create(compact('name'));
+    }
 }

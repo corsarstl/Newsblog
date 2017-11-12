@@ -36,6 +36,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/login', 'AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminsController@dashboard')->name('admin.dashboard');
     Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
+
+    Route::post('/categories', 'CategoriesController@store')->name('admin.add.category');
 });
 
 //Categories and Posts

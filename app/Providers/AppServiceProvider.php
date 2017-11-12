@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categoriesForMenu', Category::categoriesForMenu());
         });
 
+        view()->composer('admin.dashboardTabs.categories', function($view) {
+            $view->with('categoriesForMenu', Category::categoriesForMenu());
+        });
+
 
     }
 
