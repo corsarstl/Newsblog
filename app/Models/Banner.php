@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Banner extends Model
 {
     protected $fillable = [
-        'product_name', 'price', 'seller_site'
+        'product_name', 'price', 'seller_site', 'image_id'
     ];
 
     public static function banners()
@@ -24,6 +24,9 @@ class Banner extends Model
         return $bannersForDashboard;
     }
 
-
+    public function addBanner($product_name, $price, $seller_site, $image_id)
+    {
+        $this->create(compact('product_name', 'price', 'seller_site', 'image_id'));
+    }
 
 }

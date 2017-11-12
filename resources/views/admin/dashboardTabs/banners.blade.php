@@ -34,20 +34,20 @@
 
     <div class="form-group">
         <label for="price">Price:</label>
-        <input type="text" id="price" name="price" aria-describedby="titleHelp"
+        <input type="number" id="price" name="price" aria-describedby="titleHelp"
                placeholder="Enter the price" class="form-control">
     </div>
 
     <div class="form-group">
         <label for="sellerSite">Seller site:</label>
         <input type="text" id="sellerSite" name="seller_site" aria-describedby="titleHelp"
-               placeholder="Enter the tag" class="form-control">
+               placeholder="Enter the site" class="form-control">
     </div>
 
 
     <div class="form-group">
         <label for="bannerImage">Add image:</label>
-        <input type="file" class="form-control-file" id="bannerImage">
+        <input type="file" class="form-control-file" id="bannerImage" name="image_id">
     </div>
 
 
