@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Schema;
+
 use Illuminate\Support\ServiceProvider;
 
 use App\Models\Banner;
@@ -19,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+	Schema::defaultStringLength(191);
+
         view()->composer('banners.banner', function($view) {
             $view->with('banners', Banner::banners());
         });
