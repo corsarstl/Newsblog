@@ -45,4 +45,22 @@ class PostsController extends Controller
 
         return view('posts.show', compact('category_name', 'post', 'readingNow', 'readCount'));
     }
+
+    public function store(Request $request)
+    {
+        $this->validate(request(), [
+            'title'         => 'required|min:20',
+            'body'          => 'required|min:1000',
+            'image_name'    => 'required|image|max:800',
+            'category_id'   => 'required'
+        ]);
+
+        $post = new Post();
+
+        $post->addPost($request);
+
+        session()->flash('message', 'Your post has been published');
+
+        return back();
+    }
 }

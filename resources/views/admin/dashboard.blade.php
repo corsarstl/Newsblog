@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if ($flash = session('message'))
+        <div id="flash-message" class="alert alert-success" role="alert">
+            {{ $flash }}
+        </div>
+    @endif
+
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="categories-tab" data-toggle="tab" href="#categories" role="tab" aria-controls="home" aria-selected="true">Categories</a>
@@ -33,7 +39,7 @@
         </div>
 
         <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-            ...
+            @include('admin.dashboardTabs.posts')
         </div>
 
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">...</div>

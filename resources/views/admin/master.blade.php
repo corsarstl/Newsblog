@@ -16,6 +16,7 @@
     <link href="/css/blog.css" rel="stylesheet">
 
     <script src="https://use.fontawesome.com/3f055a83de.js"></script>
+
 </head>
 
 <body>
@@ -36,6 +37,7 @@
         </div>
 
     </div>
+
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>--}}

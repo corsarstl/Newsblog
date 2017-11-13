@@ -21,6 +21,8 @@ class BannersController extends Controller
 
         $banner->addBanner($request);
 
+        session()->flash('message', 'A new banner was added!');
+
         return back();
     }
 }

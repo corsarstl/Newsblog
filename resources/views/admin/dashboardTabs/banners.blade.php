@@ -50,7 +50,7 @@
 
 
     <div class="form-group">
-        <label for="bannerImage">Add image:</label>
+        <label for="bannerImage">Add image <em>(max. 200Kb)</em>:</label>
         <input type="file" class="form-control-file" id="bannerImage" name="image_name">
     </div>
 

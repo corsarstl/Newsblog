@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Image;
 
 class Post extends Model
 {
@@ -21,16 +22,16 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     public function addComment($body)
     {
         $user_id = auth()->user()->id;
 
         $this->comments()->create(compact('body', 'user_id'));
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
     }
 
     public function analyticsIfNotLoggedIn()
@@ -73,5 +74,28 @@ class Post extends Model
             ->get();
 
         return $top3posts;
+    }
+
+    public function addPost($request)
+    {
+        $this->title = $request->title;
+        $this->body = $request->body;
+
+        if ($request->image_name) {
+            $image = $request->image_name;
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/posts/' . $filename);
+            Image::make($image)->resize(640, 450)->save($location);
+
+            $this->image_name = $filename;
+        }
+
+        $this->category_id = $request->category_id;
+        $this->read_count = 0;
+        $this->is_analytic = $request->is_analytic;
+
+        $this->save();
+
+        $this->tags()->sync($request->tags);
     }
 }

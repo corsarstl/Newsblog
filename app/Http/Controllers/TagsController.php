@@ -19,6 +19,8 @@ class TagsController extends Controller
         $this->validate(request(), ['name' => 'required|min:3']);
         $tag->addTag(request('name'));
 
+        session()->flash('message', 'A new tag was added!');
+
         return back();
     }
 }
