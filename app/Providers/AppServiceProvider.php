@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-	Schema::defaultStringLength(191);
+	// Schema::defaultStringLength(191);
 
         view()->composer('banners.banner', function($view) {
             $view->with('banners', Banner::banners());
