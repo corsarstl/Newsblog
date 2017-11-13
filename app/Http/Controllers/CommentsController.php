@@ -62,4 +62,11 @@ class CommentsController extends Controller
 
         return null;
     }
+
+    public function approveComment(Request $request)
+    {
+        Comment::where('id', $request->comment_id)->insert([ 'is_approved' => $request->is_approved]);
+
+        return back();
+    }
 }

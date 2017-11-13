@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 use App\Models\Banner;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Tag;
 
 
@@ -37,6 +38,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('admin.dashboard', function($view) {
             $view->with('bannersForDashboard', Banner::bannersForDashboard());
         });
+
+        view()->composer('admin.dashboard', function($view) {
+            $view->with('commentsInPolitics', Comment::commentsInPolitics());
+        });
+
     }
 
     /**

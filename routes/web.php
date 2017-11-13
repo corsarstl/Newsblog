@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/tags', 'TagsController@store')->name('admin.add.tag');
     Route::post('/banners', 'BannersController@store')->name('admin.add.banner');
     Route::post('/posts', 'PostsController@store')->name('admin.add.post');
+    Route::patch('/comments', 'CommentsController@approveComment')->name('admin.approve.comment');
 });
 
 //Categories and Posts

@@ -44,7 +44,9 @@
 
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">...</div>
 
-        <div class="tab-pane fade" id="politics" role="tabpanel" aria-labelledby="politics-tab">...</div>
+        <div class="tab-pane fade" id="politics" role="tabpanel" aria-labelledby="politics-tab">
+            @include('admin.dashboardTabs.politics')
+        </div>
 
         <div class="tab-pane fade" id="banners" role="tabpanel" aria-labelledby="banners-tab">
             @include('admin.dashboardTabs.banners')

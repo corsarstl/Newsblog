@@ -9,7 +9,7 @@ use Image;
 class Post extends Model
 {
     protected $fillable = [
-        'title', 'body', 'image_name', 'category_id'
+        'title', 'body', 'image_name', 'category_id', 'read_count', 'is_analytic'
     ];
 
     public function category()
