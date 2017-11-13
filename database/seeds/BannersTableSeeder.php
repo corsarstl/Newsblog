@@ -12,17 +12,20 @@ class BannersTableSeeder extends Seeder
     public function run()
     {
         $data = [];
-        $limit = 20;
+        $limit = 10;
         while ($limit) {
             $productName = Faker\Factory::create()->word;
             $price = Faker\Factory::create()->randomNumber($nbDigits = 3, $strict = false);
             $sellerSite = Faker\Factory::create()->domainName;
+
             $imageId = Faker\Factory::create()->numberBetween($min = 1, $max = 9);
-            $data[$productName . $price . $sellerSite . $imageId] = [
+            $imageNameFull = $imageId . '.jpg';
+
+            $data[$productName . $price . $sellerSite . $imageNameFull] = [
                 'product_name' => $productName,
                 'price' => $price,
                 'seller_site' => $sellerSite,
-                'image_id' => $imageId
+                'image_name' => $imageNameFull
             ];
             $limit--;
         }

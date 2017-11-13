@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
-            $table->integer('image_id');
+            $table->string('image_name');
             $table->integer('category_id');
             $table->integer('read_count');
             $table->boolean('is_analytic');

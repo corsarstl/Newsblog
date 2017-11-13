@@ -1,7 +1,7 @@
 @foreach($banners as $banner)
     @unless($loop->index == 4)
         <div class="card mt-3" style="width: 10rem;">
-            <img class="card-img-top" src="/images/banners/{{ $banner->image_id }}.jpg" alt="Card image cap">
+            <img class="card-img-top" src="/images/banners/{{ $banner->image_name }}" alt="Card image cap">
             <div class="card-body pl-1">
                 <p>Product: {{ $banner->product_name }}</p>
                 <p>Price: $ {{ $banner->price }}</p>

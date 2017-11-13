@@ -8,7 +8,7 @@ use Image;
 class Banner extends Model
 {
     protected $fillable = [
-        'product_name', 'price', 'seller_site', 'image_id'
+        'product_name', 'price', 'seller_site', 'image_name'
     ];
 
     public static function banners()
@@ -20,7 +20,7 @@ class Banner extends Model
 
     public static function bannersForDashboard()
     {
-        $bannersForDashboard = Banner::all();
+        $bannersForDashboard = Banner::all()->sortByDesc('id');
 
         return $bannersForDashboard;
     }
@@ -31,13 +31,13 @@ class Banner extends Model
         $this->price = $request->price;
         $this->seller_site = $request->seller_site;
 
-        if ($request->image_id) {
-            $image = $request->image_id;
-            $filename = time();
-            $location = public_path('images/banners/' . $filename .'.jpg');
+        if ($request->image_name) {
+            $image = $request->image_name;
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/banners/' . $filename);
             Image::make($image)->resize(250, 250)->save($location);
 
-            $this->image_id = $filename;
+            $this->image_name = $filename;
         }
 
         $this->save();

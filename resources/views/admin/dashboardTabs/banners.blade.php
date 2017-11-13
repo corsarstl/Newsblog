@@ -10,17 +10,21 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($bannersForDashboard as $banner)
-        <tr>
-            <th scope="row">{{ $banner->id }}</th>
-            <td>{{ $banner->product_name }}</td>
-            <td>$ {{ $banner->price }}</td>
-            <td>{{ $banner->seller_site }}</td>
-            <td><img src="/images/banners/{{ $banner->image_id }}.jpg" alt="image_id"></td>
-        </tr>
-    @endforeach
+        @foreach($bannersForDashboard as $banner)
+            <tr>
+                <th scope="row">{{ $banner->id }}</th>
+                <td>{{ $banner->product_name }}</td>
+                <td>$ {{ $banner->price }}</td>
+                <td>{{ $banner->seller_site }}</td>
+                <td><img src="/images/banners/{{ $banner->image_name }}" alt="image_name"></td>
+            </tr>
+        @endforeach
     </tbody>
 </table>
+
+<hr>
+
+<h3>Add Banner</h3>
 
 <form method="POST" action="{{ route('admin.add.banner') }}" enctype="multipart/form-data">
 
@@ -47,7 +51,7 @@
 
     <div class="form-group">
         <label for="bannerImage">Add image:</label>
-        <input type="file" class="form-control-file" id="bannerImage" name="image_id">
+        <input type="file" class="form-control-file" id="bannerImage" name="image_name">
     </div>
 
 

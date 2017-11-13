@@ -18,7 +18,7 @@ class CreateBannersTable extends Migration
             $table->string('product_name');
             $table->integer('price');
             $table->string('seller_site');
-            $table->integer('image_id');
+            $table->string('image_name');
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class BannersController extends Controller
             'product_name'   => 'required|min:5',
             'price'          => 'required|integer',
             'seller_site'    => 'required',
-            'image_id'       => 'required|image|max:500'
+            'image_name'       => 'required|image|max:500'
         ]);
 
         $banner = new Banner();

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Post extends Model
 {
     protected $fillable = [
-        'title', 'body', 'image_id', 'category_id'
+        'title', 'body', 'image_name', 'category_id'
     ];
 
     public function category()
