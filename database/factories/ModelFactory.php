@@ -61,7 +61,8 @@ $factory->define(App\Models\Comment::class, function (Faker\Generator $faker) {
         'user_id' => function () {
             return \App\Models\User::all()->random()->id;
         },
-        'body' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true)
+        'body' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true),
+        'is_approved' => $faker->boolean($chanceOfGettingTrue = 50)
     ];
 });
 
